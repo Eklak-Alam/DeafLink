@@ -1,6 +1,5 @@
 'use client'
 
-
 import { motion } from "framer-motion";
 import { BsMicrosoft } from "react-icons/bs";
 import { SiNetflix, SiSpotify, SiApple, SiAmazon } from "react-icons/si";
