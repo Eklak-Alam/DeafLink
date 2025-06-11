@@ -1,3 +1,4 @@
+// AboutPage.jsx (Updated for full responsiveness and design changes)
 'use client'
 import { motion } from "framer-motion";
 import { FaAccessibleIcon, FaUserFriends, FaLightbulb } from "react-icons/fa";
@@ -43,8 +44,27 @@ const AboutPage = () => {
     },
   ];
 
+  const comparisons = [
+    {
+      title: "Hearing Aids",
+      description: "Amplify sound but ineffective for profound hearing loss.",
+    },
+    {
+      title: "Cochlear Implants",
+      description: "Surgical and very costly. Not accessible to all.",
+    },
+    {
+      title: "Bone Conduction Wearables",
+      description: "Lacks directionality and environmental awareness.",
+    },
+    {
+      title: "Sign Language",
+      description: "Needs both parties to understand it—limited in public settings.",
+    },
+  ];
+
   return (
-    <div className="min-h-screen text-white py-16 pt-32 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen text-white py-16 pt-32 px-4 sm:px-6 lg:px-8 bg-black">
       {/* Hero Section */}
       <motion.section
         initial="hidden"
@@ -66,46 +86,48 @@ const AboutPage = () => {
         </motion.p>
       </motion.section>
 
-      {/* Mission Section */}
+      {/* Problem Statement */}
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="max-w-6xl mx-auto mb-20"
+        className="max-w-5xl mx-auto mb-16"
       >
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
-          <div className="lg:w-1/2">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="relative p-1 rounded-2xl bg-gradient-to-br from-purple-500 to-yellow-900"
-            >
-              <div className="bg-black p-6 rounded-xl">
-                <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
-                <p className="text-gray-300 text-lg">
-                  To bridge the communication gap for the deaf community by providing an affordable, 
-                  intuitive wearable device that converts speech into customizable vibration patterns, 
-                  enabling better social interaction and environmental awareness.
-                </p>
-              </div>
-            </motion.div>
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          className="relative p-1 rounded-2xl bg-gradient-to-br from-yellow-900 to-cyan-400"
+        >
+          <div className="bg-black p-6 rounded-xl">
+            <h2 className="text-3xl font-bold mb-4">The Problem</h2>
+            <p className="text-gray-300 text-lg">
+              In India, 3.2 million people are completely deaf with limited access to affordable assistive technology.
+              Traditional solutions are often expensive, non-portable, or don't provide directional sound information.
+            </p>
           </div>
-          <div className="lg:w-1/2">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="relative p-1 rounded-2xl bg-gradient-to-br from-yellow-900 to-cyan-400"
-            >
-              <div className="bg-black p-6 rounded-xl">
-                <h2 className="text-3xl font-bold mb-4">The Problem</h2>
-                <p className="text-gray-300 text-lg">
-                  In India, 3.2 million people are completely deaf with limited access to 
-                  affordable assistive technology. Traditional solutions are often expensive, 
-                  non-portable, or don't provide directional sound information.
-                </p>
-              </div>
-            </motion.div>
+        </motion.div>
+      </motion.section>
+
+      {/* Working / Mission Section */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="max-w-5xl mx-auto mb-16"
+      >
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          className="relative p-1 rounded-2xl bg-gradient-to-br from-purple-500 to-yellow-900"
+        >
+          <div className="bg-black p-6 rounded-xl">
+            <h2 className="text-3xl font-bold mb-4">Our Work in Progress</h2>
+            <p className="text-gray-300 text-lg">
+              We are building an intuitive wearable that converts speech into directional vibrations. It aims to provide
+              real-time environmental awareness for the deaf, while remaining affordable and easy to use.
+            </p>
           </div>
-        </div>
+        </motion.div>
       </motion.section>
 
       {/* Features Grid */}
@@ -122,7 +144,6 @@ const AboutPage = () => {
         >
           Why <span className="text-yellow-900">Deaf Link</span> Stands Out
         </motion.h2>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <motion.div
@@ -139,7 +160,36 @@ const AboutPage = () => {
         </div>
       </motion.section>
 
-      {/* Team Section */}
+      {/* Market Comparison Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        variants={staggerContainer}
+        viewport={{ once: true }}
+        className="max-w-6xl mx-auto mb-20"
+      >
+        <motion.h2
+          variants={fadeIn}
+          className="text-3xl md:text-4xl font-bold text-center mb-12"
+        >
+          Market Comparison
+        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {comparisons.map((item, idx) => (
+            <motion.div
+              key={idx}
+              variants={fadeIn}
+              whileHover={{ y: -10 }}
+              className="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-yellow-900 transition-all"
+            >
+              <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+              <p className="text-gray-400">{item.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* Roadmap Section */}
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -149,14 +199,14 @@ const AboutPage = () => {
       >
         <div className="inline-flex items-center mb-12">
           <RiTeamFill className="text-4xl text-cyan-400 mr-4" />
-          <h2 className="text-3xl md:text-4xl font-bold">Our Team</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Our Roadmap</h2>
         </div>
-        
+
         <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
-          A passionate group of engineers, designers, and accessibility advocates dedicated to 
-          creating inclusive technology solutions.
+          We’re currently prototyping our hardware, conducting user testing, and preparing for a broader pilot launch.
+          Our next milestones include clinical validation, manufacturing partnerships, and app integration.
         </p>
-        
+
         <motion.div
           whileHover={{ scale: 1.01 }}
           className="inline-block p-1 rounded-full bg-gradient-to-r from-yellow-900 to-pink-600"

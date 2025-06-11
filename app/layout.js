@@ -1,20 +1,6 @@
-import { Inter, Poppins } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 
-// ✅ Optimized Google Fonts
-const poppins = Poppins({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-poppins',
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-});
 
 // ✅ SEO Metadata (supports Google, OG, Twitter)
 export const metadata = {
@@ -87,7 +73,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
+    <html lang="en">
       <head>
         {/* Font performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -132,10 +118,7 @@ export default function RootLayout({ children }) {
         })}} />
       </head>
 
-      <body
-        className={`${inter.className} antialiased bg-white text-gray-900 min-h-screen flex flex-col`}
-        aria-label="Deaf Link website"
-      >
+      <body>
         <Navbar />
           {children}
       </body>

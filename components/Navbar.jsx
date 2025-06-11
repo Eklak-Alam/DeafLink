@@ -59,7 +59,6 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -104,8 +103,8 @@ const Navbar = () => {
       {/* Desktop Navbar */}
       <motion.nav
         ref={navbarRef}
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        initial={{ opacity: 0, y: -10 }}  // Reduced from -20 to -10
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed w-full z-50 px-6 py-4 transition-all duration-300 ${
           isScrolled
