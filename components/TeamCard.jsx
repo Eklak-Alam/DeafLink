@@ -45,7 +45,7 @@ export function TeamCards() {
           <div className="text-center">
             <CardItem
               translateZ={60}
-              className="text-5xl md:text-6xl font-extrabold mb-6 text-white drop-shadow-lg"
+              className="text-3xl md:text-6xl font-extrabold mb-6 sm:mb-2 text-white drop-shadow-lg"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-amber-100">
                 Our Dream Team
@@ -54,7 +54,7 @@ export function TeamCards() {
             <CardItem
               as="p"
               translateZ={40}
-              className="text-lg md:text-xl max-w-3xl mx-auto text-amber-100 font-medium italic opacity-90"
+              className="text-sm md:text-xl max-w-3xl mx-auto text-amber-100 font-medium italic opacity-90"
             >
               "The strength of the team is each individual member. The strength of each member is the team."
             </CardItem>

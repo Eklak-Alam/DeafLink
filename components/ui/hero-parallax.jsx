@@ -57,13 +57,38 @@ export const HeroParallax = ({
   );
 };
 
-export const Header = () => {
+const Header = () => {
   return (
-    <div
-      className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white text-white">
+    <div className="max-w-7xl z-50 relative mx-auto py-10 md:py-20 px-4 w-full left-0 top-0">
+      <motion.h1 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl md:text-7xl font-bold text-white mb-6"
+      >
         Deaf Link
-      </h1>
+      </motion.h1>
+      <motion.p 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="text-lg md:text-xl text-white max-w-2xl mb-8"
+      >
+        Bridging communication gaps with innovative technology for the deaf and hard of hearing community.
+      </motion.p>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="flex flex-col sm:flex-row gap-4"
+      >
+        <button className="bg-white cursor-pointer text-blue-900 px-6 py-3 rounded-lg font-semibold text-lg hover:bg-blue-100 transition-colors">
+          Get Started
+        </button>
+        <button className="bg-transparent cursor-pointer border-2 border-white text-white px-6 py-3 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition-colors">
+          Learn More
+        </button>
+      </motion.div>
     </div>
   );
 };
@@ -99,3 +124,4 @@ export const ProductCard = ({
     </motion.div>
   );
 };
+
